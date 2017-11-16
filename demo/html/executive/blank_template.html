@@ -960,7 +960,7 @@
                           <div class="col-md-3">
                             <div class="form-group form-group-default">
                               <label>Data Reserva</label>
-                              <input type="text" class="form-control">
+                              <input type="text" class="form-control data">
                             </div>
                           </div>
 
@@ -981,11 +981,11 @@
 
 						</div>
                       </div>
-						<div>
-						<p class="p-b-12">Dados do cliente</p>
-						</div>
+                      <div>
 
-						<div class="form-group-attached">
+                        <p class="p-b-12">Dados do cliente</p>
+						</div>
+                      <div class="form-group-attached">
                         <div class="row">
 
                         <div class="col-md-4">
@@ -1012,11 +1012,12 @@
                           <div>
                             <p class="p-b-12">Dados do Voo</p>
                           </div>
+                      <div class="form-group-attached">
 						<div class="row">
 						<div class="col-md-3">
                             <div class="form-group form-group-default">
                               <label class="label-sm">Data chegada</label>
-                              <input type="text" class="form-control input-sm">
+                              <input type="text" class="form-control input-sm data">
                             </div>
                           </div>
 						<div class="col-md-2">
@@ -1044,12 +1045,13 @@
                             </div>
                           </div>
 						  </div>
-
+                      </div>
+                      <div class="form-group-attached">
 						<div class="row">
 						<div class="col-md-3">
                             <div class="form-group form-group-default">
                               <label class="label-sm">Data Partida</label>
-                              <input type="text" class="form-control input-sm">
+                              <input type="text" class="form-control input-sm data">
                             </div>
                           </div>
 						<div class="col-md-2">
@@ -1076,6 +1078,7 @@
                         <div>
                           <p class="p-b-12">Dados do Hotel</p>
                         </div>
+                      <div class="form-group-attached">
                         <div class="row">
                           <div class="col-md-3">
                             <div class="form-group form-group-default">
@@ -1096,6 +1099,8 @@
                             </div>
                           </div>
                         </div>
+                      </div>
+                      <div class="form-group-attached">
 						<div class="row">
 						<div class="col-md-3">
                             <div class="form-group form-group-default">
@@ -1116,23 +1121,21 @@
                         </div>
                         </div>
                       </div>
-                  </div>
-                    </form>
-                    <div class="row">
+                      <div class="row">
 
-                      <div class="col-md-2 m-t-10 sm-m-t-10">
-                        <button type="button" class="btn btn-primary btn-block m-t-5">Salvar</button>
+                        <div class="col-md-2 m-t-10 sm-m-t-10">
+                          <button type="button" class="btn btn-primary btn-block m-t-5">Salvar</button>
+                        </div>
+                        <div class="col-md-2 m-t-10 sm-m-t-10">
+                          <button type="button" class="btn btn-primary btn-block m-t-5" id="fechar">Fechar</button>
+                        </div>
                       </div>
-                      <div class="col-md-2 m-t-10 sm-m-t-10">
-                        <button type="button" class="btn btn-primary btn-block m-t-5">Fechar</button>
-                      </div>
-                    </div>
-
                   </div>
-				  <div>
-
+                  </form>
                 </div>
               </div>
+            </div>
+          </div>
               <!-- /.modal-content -->
             </div>
           </div>
@@ -2367,7 +2370,8 @@
     <script src="assets/plugins/jquery-datatable/media/js/dataTables.bootstrap.js" type="text/javascript"></script>
     <script src="assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js" type="text/javascript"></script>
     <script type="text/javascript" src="assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
-    <script type="text/javascript" src="assets/plugins/datatables-responsive/js/lodash.min.js"></script>		
+    <script type="text/javascript" src="assets/plugins/datatables-responsive/js/lodash.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-inputmask/jquery.inputmask.min.js"></script>
     <!-- END VENDOR JS -->
 	<script>
 	$(document).ready(function() {
@@ -2384,7 +2388,18 @@ console.log('diahnsiufasi');
 		
     });
 </script>
-
+<script>
+    $(function($) {
+        $(".data").mask("99/99/9999");
+        $("#data1").mask("99/99/9999");
+        $("#data2").mask("99/99/9999");
+    });
+</script>
+    <script>
+        $("#fechar").click(function() {
+            $('#modalSlideUpSmall').modal('hide');
+        });
+    </script>
     <!-- BEGIN CORE TEMPLATE JS -->
     <script src="pages/js/pages.min.js"></script>
     <!-- END CORE TEMPLATE JS -->
